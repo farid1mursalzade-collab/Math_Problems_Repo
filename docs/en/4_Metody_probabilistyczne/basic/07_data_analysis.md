@@ -7,7 +7,7 @@ In the previous task lists, probability was studied mainly through theoretical m
 In this task list we change the perspective.
 
 Instead of starting from a fully specified probability model, we start from **data**.  
-The data are not given directly. In each problem, students first run a short Python script that generates a reproducible dataset using a fixed random seed.
+The data are not given directly. In each problem, students first generate a reproducible dataset using the provided Python script or another suitable technology.
 
 The generated data should then be treated as observed data.
 
@@ -24,6 +24,7 @@ This is the role of **descriptive statistics**.
 In this list, students will practice:
 
 - generating reproducible datasets,
+- generating and comparing different random samples,
 - saving generated data to CSV files,
 - constructing frequency tables,
 - computing relative frequencies,
@@ -41,20 +42,50 @@ Students should also interpret what the computed quantities mean in the context 
 
 Averages, standard deviations, correlations, and plots should always be connected with the real situation represented by the dataset.
 
+## Intended Work Style
+
+These tasks are about **investigating descriptive statistics from data**.
+
+For each dataset, the expected work is not just to produce final numerical answers.  
+The expected work is to explore the data, compute descriptive summaries, visualize empirical distributions, compare groups, and explain what the summaries and visualizations show.
+
+If you use AI tools, make the intention clear:
+
+- ask AI to help analyze and explain the dataset, not only to compute isolated numbers,
+- ask AI to produce clear visual representations of the data whenever they help understanding,
+- use tables and plots together,
+- compare empirical distributions across groups, samples, or seeds when this is meaningful,
+- use different sample sizes or random seeds to show how random samples fluctuate,
+- when a theoretical distribution is available, compare the empirical behavior with the theoretical expectation,
+- explain how larger samples usually make empirical patterns more stable,
+- describe what can be seen in plots that is not obvious from a single statistic.
+
+Advanced visualizations are welcome.  
+Students may use notebooks, dashboards, HTML pages, animations, interactive charts, or any other suitable technology. The key requirement is that the visualization should help understand, present, and explain the data.
+
 ---
 
 ## General Instructions
 
 In each problem:
 
-1. Run the given Python code.
-2. Do not change the random seed.
+1. Generate the dataset using the given Python code or another suitable implementation.
+2. Treat the random seed as a tool for reproducibility within the chosen technology. Different technologies may use random seeds differently, so exact values do not have to match across implementations.
 3. Save the generated dataset as a CSV file.
 4. Use the generated dataset to solve the tasks.
-5. When possible, support numerical answers with plots.
-6. Explain the meaning of your results in words.
+5. Prepare appropriate plots or visual summaries of the data.
+6. Treat visualizations as critical tools for understanding, presenting, and explaining data.
+7. When variables are grouped or compared, visualize the comparison whenever possible.
+8. Use plots to support numerical answers, not to replace them.
+9. When possible, generate additional samples with different random seeds and compare their empirical distributions.
+10. Use these comparisons to see that random samples vary from seed to seed, even when they come from the same data-generating process.
+11. When a theoretical distribution is known, compare empirical distributions with it. Larger samples should usually fluctuate less and stay closer to the theoretical distribution.
+12. Explain the meaning of your results in words.
 
-Use the following Python libraries when needed:
+The Python code is provided as a reproducible way to generate the datasets.  
+You may use another technology for the analysis and visualization. The important point is to preserve the intended structure of the dataset and to make your procedure reproducible.
+
+If you use Python, the following libraries may be useful:
 
 ```python
 import numpy as np
@@ -72,7 +103,7 @@ df.value_counts()
 df.groupby(...)
 ```
 
-The random seed is fixed in every problem so that everyone obtains the same dataset.
+The random seed is fixed in every problem to make one generated sample reproducible. This does not mean that randomness disappears: changing the seed usually produces a different sample. If another technology is used, document how the data were generated and how reproducibility was handled.
 
 ---
 
@@ -121,7 +152,7 @@ df.head()
 1. Describe what one row of the dataset represents.
 2. Construct an absolute frequency table for the variable `roll`.
 3. Construct a relative frequency table for the variable `roll`.
-4. Draw a bar chart of the empirical distribution.
+4. Draw a bar chart of the empirical distribution. Include the fair-die probabilities as a visual reference if possible.
 5. Compute the empirical probability of the following events:
    - the result is even,
    - the result is at least 5,
@@ -176,7 +207,7 @@ df.head()
 1. Describe the random experiment represented by the dataset.
 2. Construct a frequency table for `result`.
 3. Compute the relative frequency of heads and tails.
-4. Draw a line plot of `relative_frequency_heads` against `trial`.
+4. Draw a line plot of `relative_frequency_heads` against `trial`. Add a horizontal reference line at \(0.5\) if possible.
 5. Explain what happens to the relative frequency of heads as the number of trials increases.
 6. Compare the final relative frequency of heads with \(0.5\).
 7. Does the generated coin appear to be fair? Explain carefully.
@@ -229,7 +260,7 @@ df.head()
 2. Compute the mean, median, minimum, maximum, variance, and standard deviation of `score`.
 3. Compute the same quantities separately for group A and group B.
 4. Compute the pass rate in each group.
-5. Draw histograms of exam scores for both groups.
+5. Draw histograms of exam scores for both groups, using comparable axes or bins.
 6. Draw boxplots comparing the two groups.
 7. Which group has the higher mean score?
 8. Which group has the larger standard deviation?
@@ -302,7 +333,7 @@ df.head()
 5. Use the 1.5 IQR rule to identify possible outliers.
 6. Compute the proportion of delayed deliveries.
 7. Compare delivery times between zones.
-8. Draw a histogram of `delivery_time_min`.
+8. Draw a histogram of `delivery_time_min`. Mark the mean and median if possible.
 9. Draw a boxplot of delivery times by zone.
 10. Explain why the median may be more informative than the mean in this dataset.
 
@@ -396,9 +427,10 @@ df.head()
    - `channel`,
    - `satisfaction`,
    - `renewed`.
+   Draw bar charts for the categorical variables where the visualization helps compare frequencies.
 3. Compute the overall renewal rate.
-4. Compute the renewal rate by `channel`.
-5. Compute the renewal rate by `satisfaction`.
+4. Compute the renewal rate by `channel` and visualize the result with a bar chart.
+5. Compute the renewal rate by `satisfaction` and visualize the result with a bar chart.
 6. Compute:
 
    \[
@@ -485,12 +517,12 @@ df.head()
 2. Compute descriptive statistics for `length_mm`.
 3. Compute descriptive statistics separately for each machine.
 4. Compute the proportion of parts within specification.
-5. Compute the proportion of parts within specification for each machine.
+5. Compute the proportion of parts within specification for each machine and visualize these proportions.
 6. Compare machines using:
    - mean length,
    - standard deviation,
    - proportion within specification.
-7. Draw boxplots of `length_mm` by machine.
+7. Draw boxplots of `length_mm` by machine. Add reference lines for the target value and specification limits if your plotting tool allows it.
 8. Which machine seems most centered around the target value?
 9. Which machine seems most variable?
 10. Explain why a machine can have a good mean but still produce many problematic parts.
@@ -549,9 +581,9 @@ df.head()
 
 1. Describe what one row of the dataset represents.
 2. Compute the mean and variance of hourly request counts.
-3. Compare request counts for weekdays and weekends.
+3. Compare request counts for weekdays and weekends and visualize this comparison.
 4. Compute the average number of requests by hour of day.
-5. Draw a line plot showing average requests by hour.
+5. Draw a line plot showing average requests by hour. If possible, show weekdays and weekends separately.
 6. Compute daily totals.
 7. Draw a histogram of hourly request counts.
 8. Compare the empirical mean and empirical variance of hourly counts.
@@ -608,8 +640,8 @@ df.head()
 1. Describe what one row of the dataset represents.
 2. Compute the mean, median, quartiles, and standard deviation of `waiting_time_min`.
 3. Compute the same summaries separately for each `service_type`.
-4. Draw histograms for standard and priority service.
-5. Construct an empirical cumulative distribution function for `waiting_time_min`.
+4. Draw histograms for standard and priority service, using comparable axes or bins.
+5. Construct and draw an empirical cumulative distribution function for `waiting_time_min`.
 6. Use the empirical CDF to estimate:
    - \(P(\text{waiting time} \le 5)\),
    - \(P(\text{waiting time} \le 10)\),
@@ -699,13 +731,13 @@ df.head()
 ## Tasks
 
 1. Describe what one row of the dataset represents.
-2. Compute total quantity ordered by warehouse.
-3. Compute total quantity ordered by product group.
-4. Compute average order quantity by product group.
+2. Compute total quantity ordered by warehouse and visualize the warehouse totals.
+3. Compute total quantity ordered by product group and visualize the product-group totals.
+4. Compute average order quantity by product group and compare the averages visually.
 5. Compute the return rate overall.
-6. Compute the return rate by product group.
-7. Compute the return rate by warehouse.
-8. Draw a bar chart of total quantity by product group.
+6. Compute the return rate by product group and visualize the return rates.
+7. Compute the return rate by warehouse and visualize the return rates.
+8. Draw at least two bar charts: one for demand and one for returns.
 9. Identify which product groups generate the highest demand.
 10. Explain how these empirical summaries differ from a theoretical probability model.
 
@@ -767,11 +799,11 @@ df.head()
 ## Tasks
 
 1. Describe what one row of the dataset represents.
-2. Draw a scatter plot of `x` and `y`.
+2. Draw a scatter plot of `x` and `y`, using color or symbols to distinguish the groups.
 3. Compute the correlation coefficient between `x` and `y`.
-4. Remove the observations from `outlier_group`.
+4. Remove the observations from `outlier_group` and draw the scatter plot again.
 5. Compute the correlation coefficient again.
-6. Compare the two correlation values.
+6. Compare the two correlation values numerically and visually.
 7. Explain why correlation may fail to describe a nonlinear relationship.
 8. Explain why a low correlation does not necessarily mean that there is no relationship.
 9. Explain how outliers can distort correlation.
