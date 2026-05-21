@@ -1,4 +1,4 @@
-channel,renewed_count,customer_count,renewal_rate
-mobile_app,194,225,0.862
-phone,51,91,0.56
-website,209,284,0.736
+channel,renewed_customers,total_customers,renewal_rate
+mobile_app,194,225,0.8622
+phone,51,91,0.5604
+website,209,284,0.7359
