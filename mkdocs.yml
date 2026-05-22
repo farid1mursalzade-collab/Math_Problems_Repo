@@ -124,6 +124,14 @@ plugins:
                     - '9. Correlation & Regression': '4_Metody_probabilistyczne/advanced/09_correlation_and_regression.md'
                     - '10. Advanced Methods': '4_Metody_probabilistyczne/advanced/10_advanced_methods.md'
                     - '11. Decision Theory': '4_Metody_probabilistyczne/advanced/11_decision_theory.md'
+                - PDF:
+                    - '1. Events & Probability': '4_Metody_probabilistyczne/pdf_ln/task_list_01_events_probability_general_lecture_notes.pdf'
+                    - '2. Combinatorics': '4_Metody_probabilistyczne/pdf_ln/task_list_02_combinatorics_general_lecture_notes.pdf'
+                    - '3. Probability Distributions': '4_Metody_probabilistyczne/pdf_ln/task_list_03_probability_distributions_general_lecture_notes.pdf'
+                    - '4. Discovering Formalism': '4_Metody_probabilistyczne/pdf_ln/task_list_04_discovering_formalism_general_lecture_notes.pdf'
+                    - '5. PMF, PDF, and CDF': '4_Metody_probabilistyczne/pdf_ln/task_list_05_pmf_pdf_cdf_general_lecture_notes.pdf'
+                    - '6. Conditional Probability': '4_Metody_probabilistyczne/pdf_ln/task_list_06_conditional_probability_general_lecture_notes.pdf'
+                    - '7. Descriptive Statistics': '4_Metody_probabilistyczne/pdf_ln/task_list_07_descriptive_statistics_general_lecture_notes.pdf'
               - Animations:
                 - 'Lab 1': 'anim/4_Metody_probalistyczne/laboratory_1.html'
                 - 'Lab 2': 'anim/4_Metody_probalistyczne/laboratory_2.html'
