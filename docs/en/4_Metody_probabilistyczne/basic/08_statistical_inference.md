@@ -55,8 +55,8 @@ Simulate repeated trials for:
 
 The simulation should allow changing:
 
-* the number of trials (n),
-* the probability of success (p), for coin-like experiments,
+* the number of trials $n$,
+* the probability of success $p$, for coin-like experiments,
 * probabilities of outcomes, for die-like experiments,
 * the random seed,
 * the number of repeated simulation runs.
@@ -69,10 +69,10 @@ Students should:
 2. Plot the relative frequency of selected events as a function of the number of trials.
 3. Repeat the experiment many times with different seeds.
 4. Compare how different simulation paths fluctuate.
-5. Observe what happens when (n) is small, medium, and very large.
+5. Observe what happens when $n$ is small, medium, and very large.
 6. Compare empirical frequencies with theoretical probabilities.
 7. Explain why empirical frequency is not exactly equal to theoretical probability.
-8. Explain in their own words what stabilizes as (n) increases.
+8. Explain in their own words what stabilizes as $n$ increases.
 
 ## Required visualizations
 
@@ -105,15 +105,15 @@ This distinction is crucial for understanding statistical inference.
 
 Choose a simple random experiment, for example:
 
-[
+$$
 X \sim Bernoulli(p)
-]
+$$
 
 or
 
-[
+$$
 X \sim N(\mu,\sigma^2).
-]
+$$
 
 Generate many samples.
 
@@ -121,23 +121,23 @@ Generate many samples.
 
 The simulation should allow changing:
 
-* sample size (n),
-* number of samples (R),
-* parameter values such as (p), (\mu), or (\sigma),
+* sample size $n$,
+* number of samples $R$,
+* parameter values such as $p$, $\mu$, or $\sigma$,
 * random seed.
 
 ## Investigation
 
 Students should:
 
-1. Generate one sample and compute a statistic, for example (\hat p) or (\bar x).
+1. Generate one sample and compute a statistic, for example $\hat p$ or $\bar x$.
 2. Generate many samples of the same size.
 3. Compute the same statistic for every sample.
 4. Draw the distribution of the statistic.
-5. Change (n) while keeping (R) fixed.
-6. Change (R) while keeping (n) fixed.
-7. Explain what changes when (n) increases.
-8. Explain what changes when (R) increases.
+5. Change $n$ while keeping $R$ fixed.
+6. Change $R$ while keeping $n$ fixed.
+7. Explain what changes when $n$ increases.
+8. Explain what changes when $R$ increases.
 9. Explain why a single sample gives only one possible value of a statistic.
 10. Explain why many repeated samples reveal the behavior of the estimator.
 
@@ -147,7 +147,7 @@ At least:
 
 * histograms of the estimator for different sample sizes,
 * comparison of results for different numbers of repeated samples,
-* a plot showing how the spread of the estimator changes with (n).
+* a plot showing how the spread of the estimator changes with $n$.
 
 ## Conceptual conclusion
 
@@ -164,9 +164,9 @@ Students should understand that:
 
 Investigate the behavior of the sample proportion:
 
-[
+$$
 \hat p = \frac{X}{n}.
-]
+$$
 
 This problem prepares students for confidence intervals and hypothesis tests for proportions.
 
@@ -174,48 +174,48 @@ This problem prepares students for confidence intervals and hypothesis tests for
 
 Choose a Bernoulli model:
 
-[
+$$
 X_i \sim Bernoulli(p).
-]
+$$
 
-Generate many samples and compute (\hat p) for each sample.
+Generate many samples and compute $\hat p$ for each sample.
 
 ## Parameters to control
 
 The simulation should allow changing:
 
-* true probability (p),
-* sample size (n),
-* number of repeated samples (R),
+* true probability $p$,
+* sample size $n$,
+* number of repeated samples $R$,
 * random seed.
 
 ## Investigation
 
 Students should:
 
-1. Generate many samples for a fixed (p) and (n).
-2. Compute (\hat p) for each sample.
-3. Draw the histogram of simulated (\hat p) values.
-4. Change (n) and observe how the histogram changes.
-5. Change (p) and observe how the center and spread change.
-6. Compute the empirical mean of the simulated (\hat p) values.
-7. Compare it with the true value (p).
-8. Compute the empirical standard deviation of the simulated (\hat p) values.
+1. Generate many samples for a fixed $p$ and $n$.
+2. Compute $\hat p$ for each sample.
+3. Draw the histogram of simulated $\hat p$ values.
+4. Change $n$ and observe how the histogram changes.
+5. Change $p$ and observe how the center and spread change.
+6. Compute the empirical mean of the simulated $\hat p$ values.
+7. Compare it with the true value $p$.
+8. Compute the empirical standard deviation of the simulated $\hat p$ values.
 9. Compare it with the theoretical standard error:
 
-[
+$$
 \sqrt{\frac{p(1-p)}{n}}.
-]
+$$
 
-10. Explain why (\hat p) is an estimator and also a random variable.
+10. Explain why $\hat p$ is an estimator and also a random variable.
 
 ## Required visualizations
 
 At least:
 
-* histograms of (\hat p) for several values of (n),
+* histograms of $\hat p$ for several values of $n$,
 * a plot of empirical standard deviation versus theoretical standard error,
-* a visualization showing the true value (p) as a reference line.
+* a visualization showing the true value $p$ as a reference line.
 
 ## Conceptual conclusion
 
@@ -250,8 +250,8 @@ The simulation should allow changing:
 
 * distribution type,
 * distribution parameters,
-* sample size (n),
-* number of repeated samples (R),
+* sample size $n$,
+* number of repeated samples $R$,
 * random seed.
 
 ## Investigation
@@ -259,16 +259,16 @@ The simulation should allow changing:
 Students should:
 
 1. Plot the original distribution of individual observations.
-2. Generate many samples of size (n).
+2. Generate many samples of size $n$.
 3. Compute the sample mean for each sample.
 4. Plot the histogram of sample means.
-5. Repeat for increasing values of (n).
+5. Repeat for increasing values of $n$.
 6. Observe how the distribution of sample means changes.
 7. Standardize the sample means:
 
-[
+$$
 Z=\frac{\bar X-\mu}{\sigma/\sqrt n}.
-]
+$$
 
 8. Compare the standardized histogram with the standard normal distribution.
 9. Explain why the original distribution and the distribution of sample means are different.
@@ -279,9 +279,9 @@ Z=\frac{\bar X-\mu}{\sigma/\sqrt n}.
 At least:
 
 * histogram of the original data-generating distribution,
-* histograms of sample means for several (n),
+* histograms of sample means for several $n$,
 * comparison with a normal curve,
-* visualization of how the spread decreases as (n) increases.
+* visualization of how the spread decreases as $n$ increases.
 
 ## Conceptual conclusion
 
@@ -299,24 +299,24 @@ Understand confidence intervals through repeated sampling, not only through a fo
 
 ## Simulation
 
-Choose a true probability (p).
+Choose a true probability $p$.
 Generate many samples.
-For each sample compute (\hat p) and construct a confidence interval.
+For each sample compute $\hat p$ and construct a confidence interval.
 
 For example:
 
-[
+$$
 \hat p \pm 1.96\sqrt{\frac{\hat p(1-\hat p)}{n}}.
-]
+$$
 
 ## Parameters to control
 
 The simulation should allow changing:
 
-* true probability (p),
-* sample size (n),
+* true probability $p$,
+* sample size $n$,
 * confidence level,
-* number of repeated samples (R),
+* number of repeated samples $R$,
 * random seed.
 
 ## Investigation
@@ -325,12 +325,12 @@ Students should:
 
 1. Generate many samples from the same Bernoulli model.
 2. Construct a confidence interval for each sample.
-3. Check whether each interval contains the true value (p).
+3. Check whether each interval contains the true value $p$.
 4. Estimate the empirical coverage probability.
 5. Compare empirical coverage with the chosen confidence level.
 6. Visualize many intervals on one plot.
-7. Mark intervals that contain (p) differently from intervals that miss (p).
-8. Change (n) and observe how the interval width changes.
+7. Mark intervals that contain $p$ differently from intervals that miss $p$.
+8. Change $n$ and observe how the interval width changes.
 9. Change the confidence level and observe how the interval width changes.
 10. Explain what a 95% confidence interval means and what it does not mean.
 
@@ -364,9 +364,9 @@ Use both symmetric and skewed distributions.
 
 Examples:
 
-[
+$$
 X \sim N(\mu,\sigma^2)
-]
+$$
 
 and a lognormal distribution.
 
@@ -376,9 +376,9 @@ The simulation should allow changing:
 
 * distribution type,
 * distribution parameters,
-* sample size (n),
+* sample size $n$,
 * confidence level,
-* number of repeated samples (R),
+* number of repeated samples $R$,
 * random seed.
 
 ## Investigation
@@ -386,14 +386,14 @@ The simulation should allow changing:
 Students should:
 
 1. Generate many samples from a known population.
-2. Compute (\bar x) and (s) for each sample.
+2. Compute $\bar x$ and $s$ for each sample.
 3. Construct confidence intervals for the population mean.
 4. Check how often the intervals contain the true mean.
 5. Compare performance for normal and skewed distributions.
 6. Compare small, medium, and large sample sizes.
 7. Investigate when the normal approximation works well.
 8. Investigate when the interval procedure becomes unreliable.
-9. Explain why the sample standard deviation (s) replaces the unknown (\sigma).
+9. Explain why the sample standard deviation $s$ replaces the unknown $\sigma$.
 10. Interpret one interval in a real context.
 
 ## Required visualizations
@@ -402,7 +402,7 @@ At least:
 
 * intervals plotted across repeated samples,
 * histogram of sample means,
-* comparison of interval width for different (n),
+* comparison of interval width for different $n$,
 * coverage rate for different distributions and sample sizes.
 
 ## Conceptual conclusion
@@ -424,28 +424,28 @@ Understand a hypothesis test as a comparison between observed data and simulated
 
 Use a coin experiment.
 
-Suppose we observe (h) heads in (n) tosses.
+Suppose we observe $h$ heads in $n$ tosses.
 
 We test:
 
-[
+$$
 H_0:p=0.5
-]
+$$
 
 against an alternative such as:
 
-[
+$$
 H_1:p\neq 0.5.
-]
+$$
 
 ## Parameters to control
 
 The simulation should allow changing:
 
-* observed number of heads (h),
-* number of tosses (n),
-* null hypothesis value (p_0),
-* number of Monte Carlo repetitions (R),
+* observed number of heads $h$,
+* number of tosses $n$,
+* null hypothesis value $p_0$,
+* number of Monte Carlo repetitions $R$,
 * one-sided or two-sided alternative.
 
 ## Investigation
@@ -453,21 +453,21 @@ The simulation should allow changing:
 Students should:
 
 1. Treat the observed result as fixed.
-2. Simulate many experiments assuming (H_0) is true.
-3. Plot the distribution of the number of heads under (H_0).
+2. Simulate many experiments assuming $H_0$ is true.
+3. Plot the distribution of the number of heads under $H_0$.
 4. Mark the observed result on the plot.
 5. Decide whether the observed result looks typical or unusual.
 6. Estimate the p-value by simulation.
 7. Compare the simulated p-value with an exact binomial calculation if possible.
-8. Change (n) and observe how the interpretation changes.
-9. Explain why a small deviation may matter for large (n) but not for small (n).
+8. Change $n$ and observe how the interpretation changes.
+9. Explain why a small deviation may matter for large $n$ but not for small $n$.
 10. Write a careful statistical conclusion.
 
 ## Required visualizations
 
 At least:
 
-* histogram of simulated results under (H_0),
+* histogram of simulated results under $H_0$,
 * observed result marked on the histogram,
 * visualization of tail areas,
 * p-value as a function of observed deviation or sample size.
@@ -494,29 +494,29 @@ The formula should appear as a way to measure discrepancy between observed and e
 A die is rolled many times.
 The observed counts are:
 
-[
+$$
 O_1,\ldots,O_6.
-]
+$$
 
 Under the fair-die hypothesis, the expected counts are:
 
-[
+$$
 E_i = \frac{n}{6}.
-]
+$$
 
 Define the discrepancy statistic:
 
-[
+$$
 D=\sum_{i=1}^{6}\frac{(O_i-E_i)^2}{E_i}.
-]
+$$
 
 ## Parameters to control
 
 The simulation should allow changing:
 
-* number of rolls (n),
+* number of rolls $n$,
 * probabilities of die outcomes,
-* number of Monte Carlo repetitions (R),
+* number of Monte Carlo repetitions $R$,
 * random seed.
 
 ## Investigation
@@ -526,11 +526,11 @@ Students should:
 1. Generate observed die-roll data.
 2. Compute observed frequencies.
 3. Compute expected frequencies under the fair-die model.
-4. Compute the discrepancy statistic (D).
-5. Simulate many fair-die experiments with the same (n).
-6. Compute (D) for each simulated experiment.
-7. Plot the simulated distribution of (D) under fairness.
-8. Mark the observed (D) on the plot.
+4. Compute the discrepancy statistic $D$.
+5. Simulate many fair-die experiments with the same $n$.
+6. Compute $D$ for each simulated experiment.
+7. Plot the simulated distribution of $D$ under fairness.
+8. Mark the observed $D$ on the plot.
 9. Estimate the p-value by simulation.
 10. Compare the simulation result with the chi-square approximation.
 
