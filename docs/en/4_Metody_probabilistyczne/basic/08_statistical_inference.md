@@ -37,7 +37,7 @@ The central question of this list is:
 
 ## Aim
 
-Investigate how empirical frequencies behave when the number of trials increases.
+Investigate how empirical frequencies behave when the number of independent trials increases.
 
 This problem should make the Law of Large Numbers visible through simulation.
 
@@ -50,6 +50,8 @@ Simulate repeated trials for:
 * a fair die,
 * a biased die,
 * any other simple discrete experiment chosen by the student.
+
+The trials should be independent and generated from the same probability model during one simulation run.
 
 ## Parameters to control
 
@@ -106,16 +108,18 @@ This distinction is crucial for understanding statistical inference.
 Choose a simple random experiment, for example:
 
 $$
-X \sim Bernoulli(p)
+X \sim \operatorname{Bernoulli}(p)
 $$
 
 or
 
 $$
-X \sim N(\mu,\sigma^2).
+X \sim \mathcal{N}(\mu,\sigma^2).
 $$
 
 Generate many samples.
+
+Here $n$ means the size of one sample, and $R$ means the number of repeated samples generated in the simulation.
 
 ## Parameters to control
 
@@ -165,8 +169,10 @@ Students should understand that:
 Investigate the behavior of the sample proportion:
 
 $$
-\hat p = \frac{X}{n}.
+\hat p = \frac{X}{n},
 $$
+
+where $X$ is the number of successes in a sample of size $n$.
 
 This problem prepares students for confidence intervals and hypothesis tests for proportions.
 
@@ -175,7 +181,15 @@ This problem prepares students for confidence intervals and hypothesis tests for
 Choose a Bernoulli model:
 
 $$
-X_i \sim Bernoulli(p).
+X_i \sim \operatorname{Bernoulli}(p), \quad i=1,\ldots,n.
+$$
+
+For each sample, define:
+
+$$
+X=\sum_{i=1}^{n}X_i,
+\qquad
+\hat p=\frac{1}{n}\sum_{i=1}^{n}X_i.
 $$
 
 Generate many samples and compute $\hat p$ for each sample.
@@ -242,7 +256,9 @@ Use several different data-generating distributions, for example:
 * Bernoulli trials,
 * normal distribution.
 
-For each distribution, generate many samples and compute their means.
+For each distribution, generate many independent samples and compute their means.
+
+For the standardization step, use the true mean $\mu$ and true standard deviation $\sigma$ of the chosen data-generating distribution. Choose distributions with finite variance when comparing directly with the Central Limit Theorem.
 
 ## Parameters to control
 
@@ -303,11 +319,15 @@ Choose a true probability $p$.
 Generate many samples.
 For each sample compute $\hat p$ and construct a confidence interval.
 
-For example:
+For example, for confidence level $1-\alpha$:
 
 $$
-\hat p \pm 1.96\sqrt{\frac{\hat p(1-\hat p)}{n}}.
+\hat p \pm z_{1-\alpha/2}\sqrt{\frac{\hat p(1-\hat p)}{n}}.
 $$
+
+For a 95% confidence level, $\alpha=0.05$ and $z_{1-\alpha/2}\approx 1.96$.
+
+This is the Wald interval. Students should also investigate when this interval performs poorly, especially for small $n$ or when $p$ is close to 0 or 1.
 
 ## Parameters to control
 
@@ -332,7 +352,8 @@ Students should:
 7. Mark intervals that contain $p$ differently from intervals that miss $p$.
 8. Change $n$ and observe how the interval width changes.
 9. Change the confidence level and observe how the interval width changes.
-10. Explain what a 95% confidence interval means and what it does not mean.
+10. Investigate when the interval has poor coverage.
+11. Explain what a 95% confidence interval means and what it does not mean.
 
 ## Required visualizations
 
@@ -365,10 +386,20 @@ Use both symmetric and skewed distributions.
 Examples:
 
 $$
-X \sim N(\mu,\sigma^2)
+X \sim \mathcal{N}(\mu,\sigma^2)
 $$
 
 and a lognormal distribution.
+
+The true population mean should be known from the chosen distribution, so that coverage can be checked in the simulation.
+
+When $\sigma$ is unknown and is replaced by the sample standard deviation $s$, use a t-based interval for confidence level $1-\alpha$, such as:
+
+$$
+\bar x \pm t_{n-1,1-\alpha/2}\frac{s}{\sqrt n}.
+$$
+
+Students may also compare this with a normal-approximation interval and explain when the two behave similarly.
 
 ## Parameters to control
 
@@ -391,10 +422,11 @@ Students should:
 4. Check how often the intervals contain the true mean.
 5. Compare performance for normal and skewed distributions.
 6. Compare small, medium, and large sample sizes.
-7. Investigate when the normal approximation works well.
-8. Investigate when the interval procedure becomes unreliable.
-9. Explain why the sample standard deviation $s$ replaces the unknown $\sigma$.
-10. Interpret one interval in a real context.
+7. Investigate when the t-based interval works well.
+8. Compare it with a normal-approximation interval if appropriate.
+9. Investigate when the interval procedure becomes unreliable.
+10. Explain why the sample standard deviation $s$ replaces the unknown $\sigma$.
+11. Interpret one interval in a real context.
 
 ## Required visualizations
 
@@ -429,14 +461,16 @@ Suppose we observe $h$ heads in $n$ tosses.
 We test:
 
 $$
-H_0:p=0.5
+H_0:p=p_0
 $$
 
 against an alternative such as:
 
 $$
-H_1:p\neq 0.5.
+H_1:p\neq p_0.
 $$
+
+For a fair-coin test, use $p_0=0.5$.
 
 ## Parameters to control
 
@@ -453,15 +487,23 @@ The simulation should allow changing:
 Students should:
 
 1. Treat the observed result as fixed.
-2. Simulate many experiments assuming $H_0$ is true.
+2. Simulate many experiments assuming $H_0$ is true, so that the simulated number of heads follows $\operatorname{Binomial}(n,p_0)$.
 3. Plot the distribution of the number of heads under $H_0$.
 4. Mark the observed result on the plot.
 5. Decide whether the observed result looks typical or unusual.
-6. Estimate the p-value by simulation.
+6. Estimate the p-value by simulation using a clearly stated rule.
 7. Compare the simulated p-value with an exact binomial calculation if possible.
 8. Change $n$ and observe how the interpretation changes.
 9. Explain why a small deviation may matter for large $n$ but not for small $n$.
 10. Write a careful statistical conclusion.
+
+For example, for a two-sided simulation-based p-value, students may count simulated results $H$ satisfying:
+
+$$
+|H-np_0|\ge |h-np_0|.
+$$
+
+For a one-sided test, they should use the corresponding upper or lower tail and state which tail is used.
 
 ## Required visualizations
 
@@ -498,6 +540,8 @@ $$
 O_1,\ldots,O_6.
 $$
 
+The counts should satisfy $O_1+\cdots+O_6=n$.
+
 Under the fair-die hypothesis, the expected counts are:
 
 $$
@@ -515,7 +559,7 @@ $$
 The simulation should allow changing:
 
 * number of rolls $n$,
-* probabilities of die outcomes,
+* probabilities used to generate the observed die data,
 * number of Monte Carlo repetitions $R$,
 * random seed.
 
@@ -532,7 +576,8 @@ Students should:
 7. Plot the simulated distribution of $D$ under fairness.
 8. Mark the observed $D$ on the plot.
 9. Estimate the p-value by simulation.
-10. Compare the simulation result with the chi-square approximation.
+10. Compare the simulation result with the chi-square approximation with 5 degrees of freedom.
+11. Investigate what happens when $n$ is small and some expected counts are small.
 
 ## Required visualizations
 
@@ -581,6 +626,13 @@ The simulation should allow changing:
 * number of randomization or Monte Carlo repetitions,
 * random seed.
 
+Students should choose one type of comparison and keep it consistent throughout the analysis:
+
+* for numerical measurements, compare a difference in means or medians,
+* for binary outcomes, compare a difference in proportions.
+
+They should clearly define the statistic used before simulating the null distribution.
+
 ## Investigation
 
 Students should:
@@ -595,6 +647,10 @@ Students should:
 8. Compare statistical significance with practical importance.
 9. Investigate the role of sample size.
 10. Explain why comparing only sample means or sample proportions may be misleading.
+
+When the no-difference assumption makes the group labels exchangeable, a useful default approach is a permutation test: shuffle group labels while keeping the observed values fixed, recompute the chosen statistic, and compare the observed statistic with this null distribution.
+
+For the confidence interval, students should state the method used, such as bootstrap resampling, a two-sample t interval, or an interval for a difference in proportions.
 
 ## Required visualizations
 
@@ -648,10 +704,11 @@ The final report or application must include:
 4. descriptive statistics,
 5. empirical probabilities or conditional frequencies,
 6. at least one estimator,
-7. visualization of sampling variability,
-8. at least one confidence interval,
-9. at least one hypothesis test,
-10. at least one Monte Carlo simulation supporting the inference.
+7. a clearly stated parameter or quantity being estimated,
+8. visualization of sampling variability,
+9. at least one confidence interval,
+10. at least one hypothesis test with stated null and alternative hypotheses,
+11. at least one Monte Carlo simulation supporting the inference.
 
 ## Interactive or computational component
 
